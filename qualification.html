@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><style>
+body {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+body.page-loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-out {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+</style>
+    
+  <meta charset="UTF-8">
+  <title>Qualification | SG</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f0f0f;
+      color: white;
+      margin: 0;
+      padding: 40px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head><script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.body.classList.add("page-loaded");
+});
+
+document.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", function(e) {
+    const target = this.getAttribute("href");
+
+    if (target && !target.startsWith("#")) {
+      e.preventDefault();
+      document.body.classList.remove("page-loaded");
+      document.body.classList.add("fade-out");
+
+      setTimeout(() => {
+        window.location.href = target;
+      }, 600);
+    }
+  });
+});
+</script>
+<body>
+
+  <h1>My Qualifications</h1>
+
+  <div class="gallery">
+    <img src="WEb/6416372680526fea7af3c9c5011e0256.png" alt="Certificate 1">
+    <img src="WEb/6416372680526fea7af3c9c5011e0256.png" alt="Certificate 2">
+    <img src="WEb/6416372680526fea7af3c9c5011e0256.png" alt="Certificate 3">
+  </div>
+
+</body>
+</html>

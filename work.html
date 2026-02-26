@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Work | SG</title>
+
+<style>
+body{
+  margin:0;
+  background:#0f0f0f;
+  color:white;
+  font-family:Arial, sans-serif;
+  opacity:0;
+  transform:translateY(20px);
+  transition:all 0.6s ease;
+}
+
+body.page-loaded{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.fade-out{
+  opacity:0;
+  transform:translateY(-20px);
+}
+
+header{
+  padding:20px 40px;
+  font-size:28px;
+  font-weight:bold;
+}
+
+.video-gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:25px;
+  padding:40px;
+}
+
+.video-card{
+  background:#1a1a1a;
+  border-radius:12px;
+  overflow:hidden;
+  transition:0.3s;
+}
+
+.video-card:hover{
+  transform:scale(1.04);
+}
+
+video{
+  width:100%;
+  border-radius:12px;
+}
+
+.title{
+  padding:15px;
+  font-size:16px;
+}
+</style>
+
+</head>
+<body>
+
+<header>My Work</header>
+
+<div class="video-gallery">
+
+  <div class="video-card">
+    <video controls>
+      <source src="finle.mp4" type="video/mp4">
+    </video>
+    <div class="title" >Crypto Ad Animation</div>
+  </div>
+
+  <div class="video-card">
+    <video controls>
+      <source src="HP.mp4" type="video/mp4">
+    </video>
+    <div class="title">Cinematic Promo</div>
+  </div>
+
+  <div class="video-card">
+    <video controls>
+      <source src="Big B.mp4" type="video/mp4">
+    </video>
+    <div class="title">Motion Graphics Reel</div>
+  </div>
+
+</div>
+
+</style>
+
+</head>
+<body>
+
+<div class="video-gallery">
+
+  <div class="video-card">
+    <video controls>
+      <source src="finle.mp4" type="video/mp4">
+    </video>
+    <div class="title" >Crypto Ad Animation</div>
+  </div>
+
+  <div class="video-card">
+    <video controls>
+      <source src="HP.mp4" type="video/mp4">
+    </video>
+    <div class="title">Cinematic Promo</div>
+  </div>
+
+  <div class="video-card">
+    <video controls>
+      <source src="Big B.mp4" type="video/mp4">
+    </video>
+    <div class="title">Motion Graphics Reel</div>
+  </div>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.body.classList.add("page-loaded");
+});
+
+document.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", function(e) {
+    const target = this.getAttribute("href");
+    if(target && !target.startsWith("#")){
+      e.preventDefault();
+      document.body.classList.remove("page-loaded");
+      document.body.classList.add("fade-out");
+      setTimeout(()=>{ window.location.href = target; },600);
+    }
+  });
+});
+</script>
+
+</body>
+</html>
